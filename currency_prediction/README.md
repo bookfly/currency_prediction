@@ -4,8 +4,9 @@ Getting started with Clojure - application for predicting currency
 
 ## Usage
 
-FIXME
-Application for predicting how much will be the value of EUR (EU) in RSD (Serbia).
+**FIXME**
+
+Application for predicting what will be the value of EUR (EU) in RSD (Serbia).
 
 Based on the history of the currency change (from the beginning of 2012 till today) predict the value for tomorrow.
 
