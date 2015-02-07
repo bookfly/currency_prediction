@@ -9,7 +9,8 @@ Application for predicting how much will be the value of EUR (EU) in RSD (Serbia
 
 Based on the history of the currency change (from the beginning of 2012 till today) predict the value for tomorrow.
 
-TODO
+**TODO**
+
 1. Send request/get data (http://currencies.apps.grandtrunk.net/)
 2. Unpack received data (get what is needed)
 3. Test (ex. show received data)
