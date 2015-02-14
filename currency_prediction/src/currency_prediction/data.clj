@@ -58,11 +58,3 @@
   ))
 
 (make-map (get-data-content))
-
-
-;;TODO
-;; Received data put into map
-;; key is the date
-;; value is the value
-
-
