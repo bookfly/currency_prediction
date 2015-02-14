@@ -13,13 +13,11 @@ Based on the history of the currency change (from the beginning of 2012 till tod
 **TODO**
 
 1. Send request/get data (http://currencies.apps.grandtrunk.net/)
-2. Unpack received data (get what is needed)
-3. Test (ex. show received data)
+2. Unpack received data (get what is needed) -> put into map
+3. Test (show received data)
 4. Process the data (training)
 5. Run prediction
-6. Test
-7. Present prediction (HTML)
-8. Test
+6. Present prediction (HTML)
 
 Bonus:
 - Setting page not found image on not found page
