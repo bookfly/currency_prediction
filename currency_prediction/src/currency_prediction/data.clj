@@ -38,19 +38,19 @@
       ;; (https://clojuredocs.org/clojure.core/assoc)
       (assoc m
              ;; key
-				     ;; get value from vector splited on whitespace
-				     ;; (http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get)
-				     ;; get the first element of newely gotten vector of 2 values -> key & value
-				     ;; (http://stackoverflow.com/questions/16623788/get-element-from-sequence-in-clojure)
-				     ;; #" " -> regular expresions
-				     ;; (https://clojuredocs.org/clojure.string/split)
-				     ;; get
-				     ;; (http://en.wikibooks.org/wiki/Clojure_Programming/Examples/API_Examples/Hash-map_tools)
-				     (get (clojure.string/split tupel #" ") 0)
-				     ;; value
-				     ;;  get the second element of newely gotten vector of 2 values -> key & value
-				     ;; (http://stackoverflow.com/questions/16623788/get-element-from-sequence-in-clojure)
-				     (get (clojure.string/split tupel #" ") 1)))
+             ;; get value from vector splited on whitespace
+             ;; (http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get)
+             ;; get the first element of newely gotten vector of 2 values -> key & value
+             ;; (http://stackoverflow.com/questions/16623788/get-element-from-sequence-in-clojure)
+             ;; #" " -> regular expresions
+             ;; (https://clojuredocs.org/clojure.string/split)
+             ;; get
+             ;; (http://en.wikibooks.org/wiki/Clojure_Programming/Examples/API_Examples/Hash-map_tools)
+             (get (clojure.string/split tupel #" ") 0)
+             ;; value
+             ;;  get the second element of newely gotten vector of 2 values -> key & value
+             ;; (http://stackoverflow.com/questions/16623788/get-element-from-sequence-in-clojure)
+             (get (clojure.string/split tupel #" ") 1)))
     ;; put key-value into map
     {}
     ;; vector with data from get-data-content
