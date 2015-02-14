@@ -23,23 +23,27 @@
 #_(get-data-content)
 
 ;; get-data-content returns vector with key-value strings
-;; get first string and split it at blankspace,
-;; make hash-map and put
+;; first get a string and split it at blankspace,
+;; then make hash-map and put
 ;; first part as key (date)
 ;; second as value (decimal number)
-(defn make-map [map-provided]
-  ;;v put into map
+(defn make-map []
+  ;; put into map
   ;; (https://clojuredocs.org/clojure.core/assoc)
-  (assoc map-provided
-         ;;key
-         ;; missing the first string from vector
-         ;; get value from vector splited on whitespace (get map key)
-         ;; http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get
-         (get (clojure.string/split get-data-content #" "))
+  (assoc {}
+         ;; key
+         ;; get value from vector splited on whitespace
+         ;; (http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get)
+         ;; get the first element of newely gotten vector of 2 values -> key & value
+         ;; (http://stackoverflow.com/questions/16623788/get-element-from-sequence-in-clojure)
+         (get (clojure.string/split get-data-content #" ") 0)
          ;; value
-         ()))
+         ;;  get the second element of newely gotten vector of 2 values -> key & value
+         ;; (http://stackoverflow.com/questions/16623788/get-element-from-sequence-in-clojure)
+         (get (clojure.string/split get-data-content #" ") 1)))
 
-(make-map (get-data-content))
+
+(make-map)
 
 ;; #" " -> regular expresions
 ;; (https://clojuredocs.org/clojure.string/split)
@@ -54,7 +58,7 @@
   {} 
   array-of-tupels) 
   
-)
+ )
 
 
 ;;TODO
