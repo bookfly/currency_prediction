@@ -7,9 +7,11 @@
                  [ring "1.3.2"]
                  [clj-http "1.0.1"]
                  [hiccup "1.0.5"]
-                 [compojure "1.3.1"]]
- :plugins [ [lein-ring "0.9.1"]
+                 [compojure "1.3.1"]
+                 ]
+ :plugins [[lein-ring "0.9.1"]
            [lein2-eclipse "2.0.0"]          
            [lein-localrepo "0.5.3"]]    
   ;; :ring {:handler cljs_basic.core/app}
+  :profiles {:dev {:dependencies [[midje "1.6.3"]]}}
    )
