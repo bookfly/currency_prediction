@@ -2,7 +2,8 @@
   (:require [currency-prediction.data :as data])
   (:require [clj-time [format :as f]])
   (:require [clj-time.core :as time])     
-  (:require [clj-time.coerce :as tc]))
+  (:require [clj-time.coerce :as tc])
+  )
   
 ;; Get date of the start of Unic epoch
 (defn get-epoch-date []
@@ -44,6 +45,36 @@
 ;; Get hashMap from currency-prediction.data
 ;; Parse values - dates and doubles
 ;; Return into new hashMap
+
+(defn get-map []
+  (data/make-map (data/get-data-content)))
+
+(get-map)
+
+(defn get-keys []
+  (keys (get-map)))
+
+(get-keys)
+
+(defn get-vals []
+  (vals (get-map)))
+
+(get-vals)
+
+;; (http://stackoverflow.com/questions/8536644/looping-over-vectors)
+(defn parse-map [map]
+  (for [x map 
+    ;; In x there are key and value assigned to it
+    ;; Get key and parse it
+    ;; Get value and parse it
+    ;; Returne parsed values into map    
+		    :let  [y (get-difference-date (key x))]
+		    :let  [z (parse-double(val x))]]    
+   [y z]
+   ))
+
+(parse-keys (get-map))
+
 
 
 

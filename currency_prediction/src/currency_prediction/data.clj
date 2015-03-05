@@ -31,7 +31,7 @@
   ;; put into map
   ;; example of converting array into hash-map
   ;; (http://stackoverflow.com/questions/4328709/convert-an-array-of-tuples-into-a-hash-map-in-clojure)	
-  ;; reduce does the function provided to the provided eleemnts ex. vector
+  ;; reduce does the function provided to the provided elements ex. vector
   ;; https://clojuredocs.org/clojure.core/reduce
   (reduce
     (fn [m tupel]
