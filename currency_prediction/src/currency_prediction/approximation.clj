@@ -28,6 +28,22 @@
 #_(get-difference "2012-06-02")
 
 
+;; Look at: http://stackoverflow.com/questions/10752659/how-to-convert-a-numeric-string-to-number-decimal-and-number-to-string
+;; Parse given string into double
+(defn parse-double [number]
+  (Double/parseDouble (number)))
+
+(parse-double read-string("3245.23"))
+
+(defn String->Number [str]
+  (let [n (read-string str)]
+       (if (number? n) n nil)))
+
+ (String->Number "4.5")
+ 
+ (str 4.5)
+
+
 ;; Parse date to miliseconds - NOT USING!
 #_(defn parse-date-to-mills [date]
    (tc/to-long date))
