@@ -10,7 +10,12 @@
 (defn get-mills-since-ue []
   (tc/to-long (time/now)))
 
+;; Get date of the start of Unic epoch
+(defn get-epoch-date []
+   (time/epoch))
+
 #_(get-mills-since-ue)
+#_(get-epoch-date)
 
 
 ;; Get milliseconds since Unix epoch until the date provided
@@ -18,30 +23,36 @@
 (defn get-mills-until-date [date]
   (tc/to-long date))
 
+;; Parse string into date
+(defn get-date-of-string [date]
+  (tc/to-date date))
+
 #_(get-mills-until-date "2012-06-02")
+#_(get-date-of-date "2012-06-02")
 
 
 ;; Get difference between current and given date/time
 (defn get-difference [date]
   (- (get-mills-since-ue) (get-mills-until-date date)))
 
+;; Get difference between two dates [STILL NOT WORKING!!!]
+(defn get-difference-date [date]
+  (time/interval  (time/date-time (get-epoch-date)) (time/date-time (get-date-of-string date))))
+
 #_(get-difference "2012-06-02")
+
+(get-difference-date "2012 06 02")
 
 
 ;; Look at: http://stackoverflow.com/questions/10752659/how-to-convert-a-numeric-string-to-number-decimal-and-number-to-string
 ;; Parse given string into double
 (defn parse-double [number]
-  (Double/parseDouble (number)))
+  (read-string number))
 
-(parse-double read-string("3245.23"))
+#_(parse-double "3245.23")
 
-(defn String->Number [str]
-  (let [n (read-string str)]
-       (if (number? n) n nil)))
 
- (String->Number "4.5")
- 
- (str 4.5)
+
 
 
 ;; Parse date to miliseconds - NOT USING!
