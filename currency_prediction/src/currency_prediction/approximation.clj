@@ -5,29 +5,32 @@
   )
   
 
-;; Get milliseconds since Unix epoch
+;; Get milliseconds since Unix epoch until today
 ;; (http://stackoverflow.com/questions/17432032/how-do-i-get-a-unix-timestamp-in-clojure)
 (defn get-mills-since-ue []
   (tc/to-long (time/now)))
 
 #_(get-mills-since-ue)
 
+
+;; Get milliseconds since Unix epoch until the date provided
+;; (https://github.com/clj-time/clj-time)
+(defn get-mills-until-date [date]
+  (tc/to-long date))
+
+#_(get-mills-until-date "2012-06-02")
+
+
 ;; Get difference between current and given date/time
-#_(defn [date])
+(defn get-difference [date]
+  (- (get-mills-since-ue) (get-mills-until-date date)))
 
-;; give string time
-;; parse string time into date
-;; (http://java.dzone.com/articles/clojure-converting-string-date)
-;;(require '(clj-time [format :as f]))
-;;(def string-date "18 September 2012")
-;;(f/parse (f/formatter "dd MMM YYYY") string-date)
-;;(f/show-formatters)
+#_(get-difference "2012-06-02")
 
-;;(parse (formatters :date) "2012-06-02")
 
-;; Take a look at
-;; http://stackoverflow.com/questions/14757553/how-to-convert-a-clojure-java-date-to-simpler-form
-
+;; Parse date to miliseconds - NOT USING!
+#_(defn parse-date-to-mills [date]
+   (tc/to-long date))
 
 
 ;; TODO
