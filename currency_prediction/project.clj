@@ -8,6 +8,7 @@
                  [clj-http "1.0.1"]
                  [hiccup "1.0.5"]
                  [compojure "1.3.1"]
+                 [clj-time "0.9.0"]
                  ]
  :plugins [[lein-ring "0.9.1"]
            [lein2-eclipse "2.0.0"]          
