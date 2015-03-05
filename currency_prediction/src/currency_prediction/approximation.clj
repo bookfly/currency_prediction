@@ -27,21 +27,29 @@
 (defn get-date-of-string [date]
   (tc/to-date date))
 
+;; Getting DateTime date from provided string
+(defn get-date-of-date [date]
+  (tc/from-date (get-date-of-string date)))
+
 #_(get-mills-until-date "2012-06-02")
-#_(get-date-of-date "2012-06-02")
+#_(get-date-of-string "2012-06-02")
+(get-date-of-date "2012-06-02")
 
 
 ;; Get difference between current and given date/time
 (defn get-difference [date]
   (- (get-mills-since-ue) (get-mills-until-date date)))
 
-;; Get difference between two dates [STILL NOT WORKING!!!]
+;; Get interval in days between two dates
 (defn get-difference-date [date]
-  (time/interval  (time/date-time (get-epoch-date)) (time/date-time (get-date-of-string date))))
+  (time/in-days (time/interval  (get-epoch-date)  (get-date-of-date date))))
 
-#_(get-difference "2012-06-02")
+#_(time/in-days (time/interval (time/date-time 1970 1 1) (time/date-time 2015 3 5)))
+#_(time/in-days (time/interval (get-epoch-date) (time/date-time 2014 3 5)))
+#_(time/in-days (time/interval (get-epoch-date) (get-date-of-date "2014-03-05")))
 
-(get-difference-date "2012 06 02")
+#_(get-difference-date "2014-03-05")
+
 
 
 ;; Look at: http://stackoverflow.com/questions/10752659/how-to-convert-a-numeric-string-to-number-decimal-and-number-to-string
@@ -50,7 +58,6 @@
   (read-string number))
 
 #_(parse-double "3245.23")
-
 
 
 
