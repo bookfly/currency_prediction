@@ -1,6 +1,5 @@
 (ns currency-prediction.approximation
   (:require [currency-prediction.data :as data])
-  (:require [clj-time [format :as f]])
   (:require [clj-time.core :as time])     
   (:require [clj-time.coerce :as tc])
   )
@@ -49,17 +48,9 @@
 (defn get-map []
   (data/make-map (data/get-data-content)))
 
-(get-map)
+#_(get-map)
 
-(defn get-keys []
-  (keys (get-map)))
 
-(get-keys)
-
-(defn get-vals []
-  (vals (get-map)))
-
-(get-vals)
 
 ;; (http://stackoverflow.com/questions/8536644/looping-over-vectors)
 (defn parse-map [map]
@@ -73,17 +64,5 @@
    [y z]
    ))
 
-(parse-keys (get-map))
+(parse-map (get-map))
 
-
-
-
-
-;; TODO
-;; Get date from data
-;; Count date into time (milisec etc?) -> get values for x axis
-;;
-;; Get value from data
-;; Parse it into double -> get values for y axis
-;;
-;; Put it into map
