@@ -41,6 +41,7 @@
 #_(parse-double "3245.23")
 
 
+
 ;; Get hashMap from currency-prediction.data
 ;; Parse values - dates and doubles
 ;; Return into new hashMap
@@ -60,8 +61,79 @@
     ;; Returne parsed values into map    
 		    :let  [y (get-difference-date (key x))]
 		    :let  [z (parse-double(val x))]]    
-   [y z]
-   ))
+   [y z]))
 
-(parse-map (get-map))
+#_(parse-map (get-map))
+
+;; Count the number of elements in sequence
+(count (parse-map (get-map)))
+
+
+
+
+
+
+;; TODO
+;; Take first 3 elements of sequence
+;; Put them in equation
+;; Equalize with 4th element of sequence
+;; Do this for first 84 elements (3+1)
+;; Last three elements should give the 88th element that is not there
+
+;; Println members of the map
+(map println (parse-map (get-map)))
+
+
+;; Take element from sequence at given position
+(defn iterate-sequence [seq position]
+  (nth seq position))
+
+;; Call iterate-sequence
+(defn iteration [position]  
+  (iterate-sequence (parse-map (get-map)) position)
+  )
+
+(iteration 0)
+
+;; 
+(defn take-elements 
+  ([start]
+    (iteration (- start 1))  
+  )
+  ([start end] 
+   (if (< start end)
+     (do
+       (iteration (- start 1)) 
+       (take-elements (+ start 1) end)
+     )
+     (take-elements end))))
+
+(take-elements 1 3)
+(take-elements 1)
+
+
+;; iterator i koji ide od 0 do 3 
+;; uzima 0, 1 i 2 i stavlja u prvu matricu
+;; uzima 3 i stavlja u drugu matricu
+
+;; i=0; i++; i<3
+;; if i<>3
+;; stavi u matricu A
+;; if i==3
+;; stavi u matricu y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

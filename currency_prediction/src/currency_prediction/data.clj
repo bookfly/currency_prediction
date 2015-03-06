@@ -16,9 +16,7 @@
   ;; (https://clojuredocs.org/clojure.string/split-lines)
   ;; @return Receive pairs date-value as separate strings
      (try (clojure.string/split-lines (:body (get-data-url)))
-       (catch Exception ex (str "Exception occured: " (.getMessage ex)))
-       )
-)
+       (catch Exception ex (str "Exception occured: " (.getMessage ex)))))
 
 #_(get-data-content)
 
@@ -54,13 +52,11 @@
     ;; put key-value into map
     {}
     ;; vector with data from get-data-content
-    data
-  ))
+    data))
 
 #_(make-map (get-data-content))
 
 (defn sort-map [map]
-  (into (sorted-map) map)
-  )
+  (into (sorted-map) map))
 
 #_(sort-map (make-map (get-data-content)))
