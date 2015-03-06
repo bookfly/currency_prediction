@@ -1,7 +1,8 @@
 (ns currency-prediction.data
    (:require [clj-http.client :as client]))
 
-(defn get-data-url []
+(defn get-data-url
+  []
   ;; Get currency change from 2012-2015 from web service
   ;; (http://currencies.apps.grandtrunk.net/)
   ;; @return Receive whole content
@@ -9,7 +10,8 @@
 
 #_(get-data-url)
 
-(defn get-data-content []
+(defn get-data-content
+  []
   ;; Get currency change - only body with data 
   ;; (https://github.com/ring-clojure/ring/wiki/Concepts - Responses :body)
   ;; and split it on the separator \n for the new line
@@ -25,7 +27,8 @@
 ;; then make hash-map and put
 ;; first part as key (date)
 ;; second as value (decimal number)
-(defn make-map [data]
+(defn make-map
+  [data]
   ;; put into map
   ;; example of converting array into hash-map
   ;; (http://stackoverflow.com/questions/4328709/convert-an-array-of-tuples-into-a-hash-map-in-clojure)	
@@ -56,7 +59,8 @@
 
 #_(make-map (get-data-content))
 
-(defn sort-map [map]
+(defn sort-map
+  [map]
   (into (sorted-map) map))
 
 #_(sort-map (make-map (get-data-content)))
