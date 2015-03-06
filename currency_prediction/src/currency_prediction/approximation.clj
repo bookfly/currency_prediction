@@ -95,22 +95,20 @@
 
 (iteration 0)
 
-;; 
+
 (defn take-elements 
   ([start]
-    (iteration (- start 1))  
-  )
+    (iteration (- start 1)))
   ([start end] 
-   (if (< start end)
-     (do
-       (iteration (- start 1)) 
-       (take-elements (+ start 1) end)
-     )
-     (take-elements end))))
+    (if (< start end)
+      (do
+       (println (iteration (- start 1)))
+        (take-elements (+ start 1) end)
+      )
+      (take-elements end))))
 
 (take-elements 1 3)
 (take-elements 1)
-
 
 ;; iterator i koji ide od 0 do 3 
 ;; uzima 0, 1 i 2 i stavlja u prvu matricu
