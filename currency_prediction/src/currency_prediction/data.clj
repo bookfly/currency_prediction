@@ -57,4 +57,10 @@
     data
   ))
 
-(make-map (get-data-content))
+#_(make-map (get-data-content))
+
+(defn sort-map [map]
+  (into (sorted-map) map)
+  )
+
+#_(sort-map (make-map (get-data-content)))

@@ -44,11 +44,10 @@
 ;; Get hashMap from currency-prediction.data
 ;; Parse values - dates and doubles
 ;; Return into new hashMap
-
 (defn get-map []
-  (data/make-map (data/get-data-content)))
+  (data/sort-map (data/make-map (data/get-data-content))))
 
-#_(get-map)
+(get-map)
 
 
 
