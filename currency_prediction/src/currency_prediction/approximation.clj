@@ -112,20 +112,24 @@
     (if (< start end)
       (do
        (println (iteration (- start 1)))
-        (take-elements (+ start 1) end)
+       (list (iteration (- start 1)))
+       (take-elements (+ start 1) end)
       )
-      (take-elements end))))
+      (take-elements end))
+    ;;     (take-elements (+ start 1) end)
+    ))
 
 (take-elements 1 3)
-(take-elements 1)
+(take-elements 4)
 
 ;; Function to take first 3 elements and pass it to matrix A
 ;; Takes 4th element and pass it to matrix y
 (defn put-elements-into-matrix
   []
-  ()
+  (list (take-elements 1 3))
   )
 
+(put-elements-into-matrix)
 
 ;; iterator i koji ide od 0 do 3 
 ;; uzima 0, 1 i 2 i stavlja u prvu matricu
