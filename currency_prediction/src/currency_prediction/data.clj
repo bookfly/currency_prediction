@@ -2,16 +2,20 @@
    (:require [clj-http.client :as client]))
 
 (defn get-data-url
-  []
-  ;; Get currency change from 2012-2015 from web service
-  ;; (http://currencies.apps.grandtrunk.net/)
-  ;; @return Receive whole content
-  (client/get "http://currencies.apps.grandtrunk.net/getrange/2012-01-01/2015-01-01/eur/rsd"))
+  ([]
+      ;; Get currency change from 2012-2015 from web service
+      ;; (http://currencies.apps.grandtrunk.net/)
+      ;; @return Receive whole content
+      (client/get "http://currencies.apps.grandtrunk.net/getrange/2012-01-01/2015-01-01/eur/rsd"))
+  ([date-from date-to curr-from curr-to]
+      (client/get (str "http://currencies.apps.grandtrunk.net/getrange/" date-from "/" date-to "/" curr-from "/" curr-to )))
+   )
 
 #_(get-data-url)
+#_(get-data-url "2012-01-01" "2015-01-01" "eur" "rsd")
 
 (defn get-data-content
-  []
+  ([]
   ;; Get currency change - only body with data 
   ;; (https://github.com/ring-clojure/ring/wiki/Concepts - Responses :body)
   ;; and split it on the separator \n for the new line
@@ -19,8 +23,13 @@
   ;; @return Receive pairs date-value as separate strings
      (try (clojure.string/split-lines (:body (get-data-url)))
        (catch Exception ex (str "Exception occured: " (.getMessage ex)))))
+  ([date-from date-to curr-from curr-to]
+     (try (clojure.string/split-lines (:body (get-data-url date-from date-to curr-from curr-to)))
+       (catch Exception ex (str "Exception occured: " (.getMessage ex)))))    
+  )
 
 #_(get-data-content)
+#_(get-data-content "2012-01-01" "2015-01-01" "eur" "rsd")
 
 ;; get-data-content returns vector with key-value strings
 ;; first get a string and split it at blankspace,
@@ -58,9 +67,11 @@
     data))
 
 #_(make-map (get-data-content))
+#_(make-map (get-data-content "2012-01-01" "2015-01-01" "eur" "rsd"))
 
 (defn sort-map
   [map]
   (into (sorted-map) map))
 
 #_(sort-map (make-map (get-data-content)))
+#_(sort-map (make-map (get-data-content "2012-01-01" "2015-01-01" "eur" "rsd")))

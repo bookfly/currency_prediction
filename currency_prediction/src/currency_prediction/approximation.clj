@@ -4,6 +4,8 @@
   (:require [clj-time.coerce :as tc])
   )
   
+
+  
 ;; Get date of the start of Unic epoch
 (defn get-epoch-date
   []
@@ -73,7 +75,7 @@
 #_(parse-map (get-map))
 
 ;; Count the number of elements in sequence
-(count (parse-map (get-map)))
+#_(count (parse-map (get-map)))
 
 
 
@@ -103,6 +105,7 @@
   )
 
 (iteration 0)
+(iteration 1)
 
 
 (defn take-elements 
@@ -140,12 +143,6 @@
 ;; stavi u matricu A
 ;; if i==3
 ;; stavi u matricu y
-
-
-
-
-
-
 
 
 
