@@ -8,8 +8,7 @@
       ;; @return Receive whole content
       (client/get "http://currencies.apps.grandtrunk.net/getrange/2012-01-01/2015-01-01/eur/rsd"))
   ([date-from date-to curr-from curr-to]
-      (client/get (str "http://currencies.apps.grandtrunk.net/getrange/" date-from "/" date-to "/" curr-from "/" curr-to )))
-   )
+      (client/get (str "http://currencies.apps.grandtrunk.net/getrange/" date-from "/" date-to "/" curr-from "/" curr-to ))))
 
 #_(get-data-url)
 #_(get-data-url "2012-01-01" "2015-01-01" "eur" "rsd")
@@ -25,8 +24,7 @@
        (catch Exception ex (str "Exception occured: " (.getMessage ex)))))
   ([date-from date-to curr-from curr-to]
      (try (clojure.string/split-lines (:body (get-data-url date-from date-to curr-from curr-to)))
-       (catch Exception ex (str "Exception occured: " (.getMessage ex)))))    
-  )
+       (catch Exception ex (str "Exception occured: " (.getMessage ex))))))
 
 #_(get-data-content)
 #_(get-data-content "2012-01-01" "2015-01-01" "eur" "rsd")

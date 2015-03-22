@@ -1,4 +1,4 @@
-(ns currency-prediction.approximation
+(ns currency-prediction.calculation
   (:require [currency-prediction.data :as data])
   (:require [clj-time.core :as time])     
   (:require [clj-time.coerce :as tc])
@@ -53,10 +53,14 @@
 ;; Parse values - dates and doubles
 ;; Return into new hashMap
 (defn get-map
-  []
-  (data/sort-map (data/make-map (data/get-data-content))))
+  ([]
+    (data/sort-map (data/make-map (data/get-data-content))))
+  ([date-from date-to curr-from curr-to]
+    (data/sort-map (data/make-map (data/get-data-content date-from date-to curr-from curr-to))))
+  )
 
-(get-map)
+#_(get-map)
+#_(get-map "2012-01-01" "2015-01-01" "eur" "rsd")
 
 
 
@@ -73,9 +77,11 @@
    [y z]))
 
 #_(parse-map (get-map))
+#_(parse-map (get-map "2012-01-01" "2015-01-01" "eur" "rsd"))
 
 ;; Count the number of elements in sequence
 #_(count (parse-map (get-map)))
+#_(count (parse-map (get-map "2012-01-01" "2015-01-01" "eur" "rsd")))
 
 
 
@@ -104,8 +110,8 @@
   (iterate-sequence (parse-map (get-map)) position)
   )
 
-(iteration 0)
-(iteration 1)
+#_(iteration 0)
+#_(iteration 1)
 
 
 (defn take-elements 
@@ -122,8 +128,8 @@
     ;;     (take-elements (+ start 1) end)
     ))
 
-(take-elements 1 3)
-(take-elements 4)
+#_(take-elements 1 3)
+#_(take-elements 4)
 
 ;; Function to take first 3 elements and pass it to matrix A
 ;; Takes 4th element and pass it to matrix y
