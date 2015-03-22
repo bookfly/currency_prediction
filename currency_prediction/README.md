@@ -12,17 +12,17 @@ Based on the history of the currency change (from the beginning of 2012 till tod
 
 **TODO**
 
-####Data
-1. Send request/get data (http://currencies.apps.grandtrunk.net/)
-2. Unpack received data (get what is needed) -> put into sorted map
-3. Test (function for making map giving expected hash-map)
+1. Data
+	1. Send request/get data (http://currencies.apps.grandtrunk.net/)
+	2. Unpack received data (get what is needed) -> put into sorted map
+	3. Test (function for making map giving expected hash-map)
 
-###Calculation
-4. Process the data (parse double, calculate date)
+2. Calculation
+	4. Process the data (parse double, calculate date)
 
-###Approximation
-5. Put data into matrix
-6. Process data
+3. Approximation
+	5. Put data into matrix
+	6. Process data
 
 
 Bonus:
